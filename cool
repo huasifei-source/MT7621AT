@@ -94,7 +94,6 @@ main() {
     apply_patches
     echo "=============================="
     echo "开始编译（使用 $(nproc) 个线程）..."
-    #make V=s -j$(nproc)
-    make V=s -j1
+    make V=s -j$(nproc)
 }
 main "$@"
