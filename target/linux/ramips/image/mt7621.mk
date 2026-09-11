@@ -789,11 +789,13 @@ endef
 TARGET_DEVICES += hiwifi_hc5962
 
 define Device/huasifei_ws1208
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := Huasifei
   DEVICE_MODEL := WS1208
-  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \
-	kmod-usb-ledtrig-usbport kmod-usb-net-qmi-wwan luci-app-qmodem luci-light \
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 kmod-sdhci-mt7620 \
+	kmod-usb-ledtrig-usbport kmod-usb-net-qmi-wwan kmod-usb-net-cdc-mbim luci-app-qmodem luci-light \
 	kmod-usb-serial-option uqmi kmod-usb-storage kmod-usb-storage-uas ntfs-3g block-mount \
 	kmod-nft-offload kmod-nf-flow kmod-nf-conntrack kmod-nft-nat atenl
 endef
