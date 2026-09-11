@@ -64,6 +64,10 @@
 	};
 };
 
+&sdhci {
+	status = "okay";
+};
+
 &spi0 {
 	status = "okay";
 
@@ -120,6 +124,10 @@
 		mediatek,mtd-eeprom = <&factory 0x8000>;
 		ieee80211-freq-limit = <5000000 6000000>;
 
+		nvmem-cells = <&macaddr_factory_4>;
+		nvmem-cell-names = "mac-address";
+		mac-address-increment = <1>;
+
 		led {
 			led-sources = <2>;
 		};
@@ -127,8 +135,9 @@
 };
 
 &gmac0 {
-	nvmem-cells = <&macaddr_factory_e000>;
+	nvmem-cells = <&macaddr_factory_4>;
 	nvmem-cell-names = "mac-address";
+	mac-address-increment = <2>;
 };
 
 &switch0 {
@@ -156,8 +165,9 @@
 		port@4 {
 			status = "okay";
 			label = "wan";
-			nvmem-cells = <&macaddr_factory_e006>;
+			nvmem-cells = <&macaddr_factory_4>;
 			nvmem-cell-names = "mac-address";
+			mac-address-increment = <3>;
 		};
 	};
 };
@@ -167,11 +177,7 @@
 	#address-cells = <1>;
 	#size-cells = <1>;
 
-	macaddr_factory_e000: macaddr@e000 {
-		reg = <0xe000 0x6>;
-	};
-
-	macaddr_factory_e006: macaddr@e006 {
-		reg = <0xe006 0x6>;
+	macaddr_factory_4: macaddr@4 {
+		reg = <0x4 0x6>;
 	};
 };
