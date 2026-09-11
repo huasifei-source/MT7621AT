@@ -65,6 +65,10 @@ dlink,dir-882-r1)
 gnubee,gb-pc2)
 	ucidef_set_led_netdev "ethyellow" "ethyellow" "orange:ethyellow" "ethyellow" "link tx rx"
 	;;
+huasifei,ws1208)
+	ucidef_set_led_netdev "wwan0" "wwan0" "green:cellular" "wwan0" "link tx rx"
+	ucidef_set_led_usbport "usb" "USB" "green:usb" "1-2-port1"
+	;;
 linksys,e5600)
 	ucidef_set_led_netdev "wan" "wan link" "blue:wan" "wan" "link"
 	;;
